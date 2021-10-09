@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::prefix('students')->group(function () {
     Route::get('','StudentController@index')->name('student.index')->middleware('auth');
     Route::get('create', 'StudentController@create')->name('student.create')->middleware('auth');
-    Route::post('store', 'StudentControllerr@store')->name('student.store')->middleware('auth');
+    Route::post('store', 'StudentController@store')->name('student.store')->middleware('auth');
 
     Route::get('edit/{student}', 'StudentController@edit')->name('student.edit')->middleware('auth');
     Route::post('update/{student}', 'StudentController@update')->name('student.update')->middleware('auth');

@@ -1,14 +1,21 @@
+@extends('layouts.app')
+
+@section('content')
+<div class='container'>
+
 <h1>School index</h1>
 
 
+<a class='btn btn-primary' href='{{route('school.create')}}'>Add new school<a>
+<table class="table table-striped">
 
-<table>
 <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Description</th>
     <th>Place</th>
     <th>Phone</th>
+    <th>Action</th>
 </tr>
 
 
@@ -33,3 +40,5 @@
 @endforeach
 
 </table>
+
+@endsection

@@ -30,7 +30,7 @@ Route::prefix('students')->group(function () {
 
 Route::prefix('schools')->group(function () {
     Route::get('','SchoolController@index')->name('school.index')->middleware('auth');
-    Route::get('create', 'SchoolController@index')->name('school.create')->middleware('auth');
+    Route::get('create', 'SchoolController@create')->name('school.create')->middleware('auth');
     Route::post('store', 'SchoolController@store')->name('school.store')->middleware('auth');
 
     Route::get('edit/{school}', 'SchoolController@edit')->name('school.edit')->middleware('auth');
@@ -42,7 +42,7 @@ Route::prefix('schools')->group(function () {
 
 Route::prefix('attendancegroups')->group(function () {
     Route::get('','AttendanceGroupController@index')->name('attendancegroup.index')->middleware('auth');
-    Route::get('create', 'AttendanceGroupController@index')->name('attendancegroup.create')->middleware('auth');
+    Route::get('create', 'AttendanceGroupController@create')->name('attendancegroup.create')->middleware('auth');
     Route::post('store', 'AttendanceGroupController@store')->name('attendancegroup.store')->middleware('auth');
 
     Route::get('edit/{attendancegroup}', 'AttendanceGroupController@edit')->name('attendancegroup.edit')->middleware('auth');

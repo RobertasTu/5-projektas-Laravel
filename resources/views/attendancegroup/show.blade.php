@@ -1,3 +1,9 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class='container'>
+
 <h1>Information about attendance group</h1>
 <table>
     <tr>
@@ -31,3 +37,7 @@
 
 
     </table>
+    <a class='btn btn-primary' href='{{route('attendancegroup.index')}}'>Back</a>
+</div>
+
+@endsection

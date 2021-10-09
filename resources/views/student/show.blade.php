@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class='container'>
 
 <h1>Information about student</h1>
 <table>
@@ -30,7 +35,12 @@
             </td>
         </tr>
 
-
     </table>
+    <a href='{{route('student.index')}}'>Back<a>
+</div>
+
+
+@endsection
+
 
 

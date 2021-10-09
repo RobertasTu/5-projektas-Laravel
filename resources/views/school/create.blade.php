@@ -1,3 +1,11 @@
+
+@extends('layouts.app')
+
+@section('content')
+
+<div class='container'>
+
+
 <h1>Add school</h1>
 
 <form method='POST' action="{{route('school.store')}}">
@@ -13,4 +21,7 @@
 
 
 </form>
-</div>
+<a class='btn btn-primary' href='{{route('school.index')}}'>Back</a>
+
+@endsection
+

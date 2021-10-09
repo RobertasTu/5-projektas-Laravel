@@ -1,3 +1,10 @@
+@extends('layouts.app')
+
+@section('content')
+
+
+<div class='container'>
+
 <h2>Attendance group edit</h2>
 
 <form method='POST' action="{{route('attendancegroup.update', [$attendancegroup])}}">
@@ -12,3 +19,8 @@
 
 
 </form>
+
+<a class='btn btn-primary' href='{{route('attendancegroup.index')}}'>Back</a>
+</div>
+
+@endsection

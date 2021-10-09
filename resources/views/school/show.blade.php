@@ -1,4 +1,11 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class='container'>
+
 <h1>Information about school</h1>
+
 <table>
     <tr>
         <th>ID</th>
@@ -31,3 +38,7 @@
 
 
     </table>
+    <a class='btn btn-primary' href='{{route('school.index')}}'>Back</a>
+</div>
+
+@endsection

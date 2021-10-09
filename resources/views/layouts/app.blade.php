@@ -62,9 +62,9 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="schools" >Schools</a>
-                                    <a class="dropdown-item" href="students" >Students</a>
-                                    <a class="dropdown-item" href="attendancegroups" >Attendance groups</a>
+                                    <a class="dropdown-item" href="{{ route('school.index') }}">Schools</a>
+                                    <a class="dropdown-item" href="{{ route('student.index') }}" >Students</a>
+                                    <a class="dropdown-item" href="{{ route('attendancegroup.index') }}" >Attendance groups</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

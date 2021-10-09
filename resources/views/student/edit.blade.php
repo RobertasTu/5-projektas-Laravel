@@ -1,3 +1,9 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class='container'>
+
 <form method='POST' action="{{route('student.update', [$student])}}">
     Name: <input type='text' name='student_name' value='{{$student->name}}' />
     Surname: <input type='text' name='student_surname' value='{{$student->surname}}' />
@@ -10,3 +16,8 @@
 
 
 </form>
+
+<a href='{{route('student.index')}}'>Back<a>
+</div>
+
+@endsection

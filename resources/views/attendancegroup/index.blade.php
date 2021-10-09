@@ -1,14 +1,22 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class='container'>
+
 <h1>Attendance index</h1>
 
-<p>Lankomumo lentelė</p>
 
-<table>
+
+<table class="table table-striped">
 <tr>
+    <a class='btn btn-primary' href='{{route('attendancegroup.create')}}'>Add new<a>
     <th>ID</th>
     <th>Name</th>
     <th>Description</th>
     <th>Difficulty</th>
     <th>School ID</th>
+    <th>Action</th>
 
 </tr>
 
@@ -36,3 +44,6 @@
 @endforeach
 
 </table>
+
+</div>
+@endsection

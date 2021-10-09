@@ -1,17 +1,24 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class='container'>
+
 <h1>Student index</h1>
 
-<p>Studentų lentelė</p>
 
-<table>
+
+<table class="table table-striped">
 <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Surname</th>
     <th>Group ID</th>
     <th>Image Url</th>
+    <th>Action</th>
 </tr>
 
-
+<a class='btn btn-primary' href='{{route('student.create')}}'>Enlist new student<a>
 @foreach ($students as $student)
     <tr>
         <td>{{ $student->id }}</td>
@@ -30,6 +37,12 @@
             </form>
         </td>
     </tr>
+
 @endforeach
 
+
 </table>
+
+</div>
+@endsection
+

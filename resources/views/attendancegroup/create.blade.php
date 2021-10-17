@@ -12,7 +12,7 @@
                     <div class="card-header">{{ __('Add attendance group') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('attendancegroup.store') }}">
+                        <form method="POST" action="{{ route('attendancegroup.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -21,11 +21,7 @@
                                 <div class="col-md-6">
                                     <input id="attendancegroup_name" type="text" class="form-control @error('name') is-invalid @enderror" name="attendancegroup_name" value="{{ old('attendancegroup_name') }}" required autocomplete="attendancegroup_name" autofocus>
 
-                                    @error('attendancegroup_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+
                                 </div>
                             </div>
 
@@ -33,13 +29,10 @@
                                 <label for="attendancegroup_description" class="col-md-4 col-form-label text-md-right">{{ __('Attendancegroup description:') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="attendancegroup_description" type="text" class="form-control" name="attendancegroup_description" required autocomplete="attendancegroup_description">
+                                    {{-- <input id="attendancegroup_description" type="text" class="form-control" name="attendancegroup_description" required autocomplete="attendancegroup_description"> --}}
 
-                                    @error('attendancegroup_description')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                   <textarea class='summernote' name='attendancegroup_description'>
+                                   </textarea>
                                 </div>
                             </div>
 
@@ -49,11 +42,7 @@
                                 <div class="col-md-6">
                                     <input id="attendancegroup_difficulty" type="text" class="form-control"  name="attendancegroup_difficulty" required autocomplete="attendancegroup_difficulty">
 
-                                    @error('attendancegroup_difficulty')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+
                                 </div>
                             </div>
 
@@ -64,6 +53,12 @@
                                     <input id="attendancegroup_school_id" type="text" class="form-control" name="attendancegroup_school_id" required autocomplete="attendancegroup_school_id">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="attendancegroup_logo" class="col-md-4 col-form-label text-md-right">{{ __('Attendancegroup school logo:') }}</label>
+                                <div class="col-md-6">
+                            <input type="file" name="image" class="form-control">
+                                </div>
+                            </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
@@ -71,6 +66,9 @@
                                         {{ __('Add group') }}
                                     </button>
                                 </div>
+
+
+
                                 <a href='{{route('attendancegroup.index')}}'>Back</a>
                             </div>
                         </form>
@@ -102,5 +100,12 @@
     </div>
     </div>
 </div> --}}
+
+<script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+</script>
+
 
 @endsection

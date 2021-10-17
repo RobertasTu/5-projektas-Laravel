@@ -13,7 +13,7 @@
                     <div class="card-header">{{ __('Add new student') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('student.store') }}">
+                        <form method="POST" action="{{ route('student.store') }}" enctype='multipart/form-data'>
                             @csrf
 
                             <div class="form-group row">
@@ -22,11 +22,6 @@
                                 <div class="col-md-6">
                                     <input id="student_name" type="text" class="form-control @error('name') is-invalid @enderror" name="student_name" value="" required autocomplete="student_name" autofocus>
 
-                                    @error('student_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
                             </div>
 
@@ -36,12 +31,7 @@
                                 <div class="col-md-6">
                                     <input id="student_surname" type="text" class="form-control" name="student_surname" required autocomplete="student_surname">
 
-                                    @error('student_surname')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                                 </div>
                             </div>
 
                             <div class="form-group row">
@@ -59,10 +49,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="student_image_url" class="col-md-4 col-form-label text-md-right">{{ __('Student image URL:') }}</label>
+                                <label for="student_image_url" class="col-md-4 col-form-label text-md-right">{{ __('Student image:') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="student_image_url" type="text" class="form-control" name="student_image_url" required autocomplete="student_image_url">
+                                    <input id="student_image_url" type="file" class="form-control" name="student_image_url" >
                                 </div>
                             </div>
 

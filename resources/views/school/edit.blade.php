@@ -13,7 +13,7 @@
                     <div class="card-header">{{ __('Edit school information') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{route('school.update', [$school]) }}">
+                        <form method="POST" action="{{route('school.update', [$school]) }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -63,6 +63,13 @@
 
                                 <div class="col-md-6">
                                     <input id="school_phone" type="text" class="form-control" name="school_phone" value='{{$school->phone}}' required autocomplete="school_phone">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="school_logo" class="col-md-4 col-form-label text-md-right">{{ __(' School logo:') }}</label>
+                                <div class="col-md-6">
+                            <input type="file" name="image" class="form-control" value=''>
+                            <p>{{$school->logo}}</p>
                                 </div>
                             </div>
 

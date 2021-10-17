@@ -5,37 +5,22 @@
 <div class='container'>
 
 <h1>Information about student</h1>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Group ID</th>
-        <th>Image URL</th>
-    </tr>
+
+<h2>{{ $student->id }}. {{ $student->name }} {{ $student->surname }}, Group id: {{ $student->group_id }} <a class='btn btn-primary' href='{{route('student.edit',[$student])}}'>Edit</a></h2>
 
 
 
-        <tr>
-            <td>{{ $student->id }}</td>
+        <img src="{{ $student->image_url }}" alt="{{$student->name}}" style="width:400px">
 
-            <td>{{ $student->name }}</td>
-            <td>{{ $student->surname }}</td>
-            <td>{{ $student->group_id }}</td>
-            <td>{{ $student->image_url }}</td>
 
-            <td>
-                <a href='{{route('student.edit',[$student])}}'>Edit</a>
-                <form method='POST' action="{{route('student.destroy', [$student]) }}">
+                <form method='POST' action="{{route('student.destroy', [$student]) }}"> <br>
 
                 @csrf
-                <button type='submit'>Delete</button>
+                <button class='btn btn-secondary' type='submit'>Delete</button>
 
                 </form>
-            </td>
-        </tr>
 
-    </table>
+
     <a href='{{route('student.index')}}'>Back<a>
 </div>
 

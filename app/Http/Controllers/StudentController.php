@@ -41,7 +41,25 @@ class StudentController extends Controller
         $student->name = $request->student_name;
         $student->surname = $request->student_surname;
         $student->group_id = $request->student_group_id;
-        $student->image_url = $request->student_image_url;
+         // $student->image_url = $request->student_image_url;
+
+         //suteikiam paveiksliukui varda(2 tokie patys paveiksliukai, persivadina)
+        //ar tuscias ar ne -true/false
+        if($request->has('student_image_url')) {
+
+            $imageName = time().'.'.$request->student_image_url->extension();
+            $student->image_url = '/images/'. $imageName;
+
+            $request->student_image_url->move(public_path('images'), $imageName);
+        } else {
+            $student->image_url = '/images/placeholder.png';
+        }
+
+
+
+        //1. info apie paveiksliuka irasyti i db
+        //2. paveiksliuka kazkur ikeliam
+
 
         $student->save();
 
@@ -82,7 +100,17 @@ class StudentController extends Controller
         $student->name = $request->student_name;
         $student->surname = $request->student_surname;
         $student->group_id = $request->student_group_id;
-        $student->image_url = $request->student_image_url;
+
+
+        // jei paveiksliuko input uzpildytas ikelia nauja,
+        // jei tuscias -> tada priskiria placeholder.png
+        if($request->has('student_image_url')) {
+
+            $imageName = time().'.'.$request->student_image_url->extension();
+            $student->image_url = '/images/'. $imageName;
+
+            $request->student_image_url->move(public_path('images'), $imageName);
+        }
 
         $student->save();
         return redirect()->route('student.index');

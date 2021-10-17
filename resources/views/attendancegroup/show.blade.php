@@ -12,6 +12,7 @@
         <th>Description</th>
         <th>Difficulty</th>
         <th>School ID</th>
+        <th>Logo</th>
     </tr>
 
 
@@ -23,6 +24,7 @@
             <td>{{ $attendancegroup->description }}</td>
             <td>{{ $attendancegroup->difficulty }}</td>
             <td>{{ $attendancegroup->school_id }}</td>
+            <td>{{ $attendancegroup->logo }}</td>
 
             <td>
                 <a href='{{route('attendancegroup.edit',[$attendancegroup])}}'>Edit</a>

@@ -1,3 +1,5 @@
+{{-- layouts/app.blade --}}
+
 @extends('layouts.app')
 
 @section('content')
@@ -14,7 +16,7 @@
     <th>Name</th>
     <th>Surname</th>
     <th>Group ID</th>
-    <th>Image Url</th>
+    {{-- <th>Image Url</th> --}}
     <th>Action</th>
 </tr>
 
@@ -25,14 +27,14 @@
         <td><a href="{{route('student.show', [$student])}}">{{ $student->name }}</a></td>
         <td>{{ $student->surname }}</td>
         <td>{{ $student->group_id }}</td>
-        <td>{{ $student->image_url }}</td>
+        {{-- <td><img src="{{ $student->image_url }}" alt=" {{ $student->name }}" /></td> --}}
 
         <td>
             <a href='{{route('student.edit',[$student])}}'>Edit</a>
             <form method='POST' action="{{route('student.destroy', [$student]) }}">
 
             @csrf
-            <button type='submit'>Delete</button>
+            <button class='btn btn-secondary' type='submit'>Delete</button>
 
             </form>
         </td>

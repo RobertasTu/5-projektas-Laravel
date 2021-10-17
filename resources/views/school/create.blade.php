@@ -12,7 +12,7 @@
                     <div class="card-header">{{ __('Add new school') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('school.store') }}">
+                        <form method="POST" action="{{ route('school.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -33,13 +33,14 @@
                                 <label for="school_description" class="col-md-4 col-form-label text-md-right">{{ __('School description:') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="school_description" type="text" class="form-control" name="school_description" required autocomplete="school_description">
+                                    <textarea type="text" class="form-control summernote-school_description" name="school_description" required autocomplete="school_description">
 
                                     @error('school_description')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </textarea>
                                 </div>
                             </div>
 
@@ -64,6 +65,12 @@
                                     <input id="school_phone" type="text" class="form-control" name="school_phone" required autocomplete="school_phone">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="school_logo" class="col-md-4 col-form-label text-md-right">{{ __(' School logo:') }}</label>
+                                <div class="col-md-6">
+                            <input type="file" name="image" class="form-control">
+                                </div>
+                            </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
@@ -82,6 +89,13 @@
 
 
     @endsection
+
+    <script>
+        $(document).ready(function() {
+            $(".summernote").summernote();
+
+        });
+    </script>
 
 
 {{-- @extends('layouts.app')

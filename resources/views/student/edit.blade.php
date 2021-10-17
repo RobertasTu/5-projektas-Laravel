@@ -14,7 +14,7 @@
                     <div class="card-header">{{ __('Edit student information') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{route('student.update', [$student]) }}">
+                        <form method="POST" action="{{route('student.update', [$student]) }}" enctype='multipart/form-data'>
                             @csrf
 
                             <div class="form-group row">
@@ -63,15 +63,21 @@
                                 <label for="student_image_url" class="col-md-4 col-form-label text-md-right">{{ __('Student image URL:') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="student_image_url" type="text" class="form-control" name="student_image_url" value='{{$student->image_url}}' required autocomplete="student_image_url">
-                                </div>
+                                    <input id="student_image_url" type="file" class="form-control" name="student_image_url" >
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="student_image_url" class="col-md-4 col-form-label text-md-right">{{ __('Student current image:') }}</label>
+                            <div class="col-md-6">
+                            <img src="{{$student->image_url}}" alt="{{$student->name}}" style="width:400px">
+                            </div>
                             </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Save new student info') }}
-                                    </button>
+                                    </button><br>
                                 </div>
                                 <a href='{{route('student.index')}}'>Back</a>
                             </div>

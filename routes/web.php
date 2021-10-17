@@ -45,6 +45,8 @@ Route::prefix('attendancegroups')->group(function () {
     Route::get('create', 'AttendanceGroupController@create')->name('attendancegroup.create')->middleware('auth');
     Route::post('store', 'AttendanceGroupController@store')->name('attendancegroup.store')->middleware('auth');
 
+
+
     Route::get('edit/{attendancegroup}', 'AttendanceGroupController@edit')->name('attendancegroup.edit')->middleware('auth');
     Route::post('update/{attendancegroup}', 'AttendanceGroupController@update')->name('attendancegroup.update')->middleware('auth');
     Route::post('delete/{attendancegroup}', 'AttendanceGroupController@destroy' )->name('attendancegroup.destroy')->middleware('auth');

@@ -16,6 +16,7 @@
     <th>Description</th>
     <th>Difficulty</th>
     <th>School ID</th>
+    {{-- <th>Logo</th> --}}
     <th>Action</th>
 
 </tr>
@@ -26,9 +27,12 @@
         <td>{{ $attendancegroup->id }}</td>
 
         <td><a href="{{route('attendancegroup.show', [$attendancegroup])}}">{{ $attendancegroup->name }}</a></td>
-        <td>{{ $attendancegroup->description }}</td>
+
+        {{-- {{}} -nuima formatavima; {!! su formatavimu !!} --}}
+        <td>{!! $attendancegroup->description !!}</td>
         <td>{{ $attendancegroup->difficulty }}</td>
         <td>{{ $attendancegroup->school_id }}</td>
+        {{-- <td>{{ $attendancegroup->logo }}</td> --}}
 
 
         <td>

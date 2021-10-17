@@ -15,6 +15,7 @@
     <th>Description</th>
     <th>Place</th>
     <th>Phone</th>
+    <th>Image</th>
     <th>Action</th>
 </tr>
 
@@ -26,6 +27,7 @@
         <td>{{ $school->description }}</td>
         <td>{{ $school->place }}</td>
         <td>{{ $school->phone }}</td>
+        <td><img src="{{ $school->logo }}" alt="{{$school->name}}"></td>
 
         <td>
             <a href='{{route('school.edit',[$school])}}'>Edit</a>

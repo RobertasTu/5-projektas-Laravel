@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\School;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SchoolController extends Controller
 {
@@ -42,6 +43,12 @@ class SchoolController extends Controller
         $school->description = $request->school_description;
         $school->place = $request->school_place;
         $school->phone = $request->school_phone;
+        $school->logo = time().'.'.$request->image->extension();
+
+
+             $imageName = time().'.'.$request->image->extension();
+
+            $request->image->move(public_path('images'), $imageName );
 
         $school->save();
 
